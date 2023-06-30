@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{id.model_title}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="height: auto;width: 550px; text-align: left;padding-top: 25px; background-color: aliceblue; border: 1px solid; margin-top: 25px;">
+    <h5> {{id.model_title}}</h5>
+    <p>
+        {{id.model_post}}
+        
+    </p>
+    <h6>Author {{id.model_author}}</h6>
+</div>
+{% endblock %}
