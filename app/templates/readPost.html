@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{id.model_title}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="height: auto;width: 550px; text-align: left;padding-top: 25px; background-color: aliceblue; border: 1px solid; margin-top: 25px;">
+    <h5> {{id.model_title}}</h5>
+    <p>
+        {{id.model_post}}
+        
+    </p>
+    <h6>Author {{id.model_author}}</h6>
+    <form action="{% url 'likePost' id=id.model_id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" value="{{id.model_like}}" name="like_button" class="btn bg-info like_button">Like {{id.model_like}}</button>
+        <style>
+            .like_button {
+                padding-bottom: 5px;
+                display: inline-block;
+                justify-content: right;
+                font-size: 12px;
+            }
+        </style>
+    </form>
+</div>
+
+{% endblock %}
