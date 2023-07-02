@@ -3,6 +3,7 @@ This is the very simple blog  app created with Python Django
 # Features
 - You can create post and save into the database 
 - View your post
+- You can like your post
 
 ### if you want to modify 
 Django admin Username and Password
