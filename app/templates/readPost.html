@@ -15,7 +15,12 @@ Zetta | {{id.model_title}}
     <h6>Author {{id.model_author}}</h6>
     <form action="{% url 'likePost' id=id.model_id %}" method="post">
         {% csrf_token %}
+        {% if id.model_like > 0 %}
+        <button type="submit" value="{{id.model_like}}" name="like_button" class="btn bg-info like_button">Likes {{id.model_like}}</button>
+        
+        {% else %}
         <button type="submit" value="{{id.model_like}}" name="like_button" class="btn bg-info like_button">Like {{id.model_like}}</button>
+        {% endif %}
         <style>
             .like_button {
                 padding-bottom: 5px;
