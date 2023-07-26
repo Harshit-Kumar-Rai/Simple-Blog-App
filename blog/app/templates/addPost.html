@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+  {% block title %} Add Post | Zetta {% endblock %}
+
+  {% block content %}
+    <h5 style="text-align: center;padding-top: 25px;">Write Post</h5>
+    <div class="container" ">
+        <form method="post" action="{% url 'addPost' %}" style="margin-top: 50px;padding-left: 300px;">
+          {% csrf_token %}  
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="inputEmail4">Author</label>
+                <input type="text" class="form-control"  placeholder="Author" name="author" required>
+              </div><br>
+              <div class="form-group col-md-3">
+                <label for="inputEmail4">Category</label>
+                <input type="text" class="form-control"  placeholder="Like Technology" name="cat" required>
+              </div><br>
+              <div class="form-group col-md-6">
+                <label for="">Blog Title</label>
+                <input type="text" class="form-control"  placeholder="Blog Title" name="title" required>
+              </div>
+            </div><br>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Short Description</label>
+                  <input type="text" class="form-control"  placeholder="Short Description" name="short" required>
+                </div><br>
+                <div class="form-group col-md-6">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control"  rows="5"  placeholder="Write Your Detailed Post" name="post" required></textarea>
+                </div>
+              </div>
+            
+            <br>
+            <button type="submit" class="btn btn-primary">Add Post</button>
+          </form>
+    </div>
+    {% endblock %}
+    
+  </body>
+</html>

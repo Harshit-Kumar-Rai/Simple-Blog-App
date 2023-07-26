@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Zetta | {{id.model_title}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 5rem;">
+    <div class="row">
+        <div class="col-3">
+            <h5>Featured Post</h5>
+            {% for i in featured %}
+            <div class="card" style="width: auto; margin-bottom: 1rem;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">{{i.model_title}}</h5>
+                  
+                  <p class="card-text">{{i.model_short|slice:":100"}}</p>
+                  <a href="{% url 'readPost' id=i.model_id %}" class="card-link">Read</a>
+                  
+                </div>
+              </div>
+              {% endfor %}
+              
+        </div>
+        <div class="col-6">
+
+            <h5 class="fw-bold">{{id.model_title}}</h5>
+            <p>
+                {{id.model_post}}
+
+            </p>
+            <h6 class="in">Author {{id.model_author}}</h6>
+            <h6 class="in" style="padding-left: 250px;">Category {{id.model_cat}}</h3>
+            <h6> Views {{id.view_counter}}</h6>
+                <style>
+                    .in {
+                        display: inline-block;
+                    }
+                </style>
+                <form action="{% url 'likePost' id=id.model_id %}" method="post">
+                    {% csrf_token %}
+                    
+                    <button type="submit" value="{{id.model_like}}" name="like_button"
+                        class="btn bg-info like_button">Like {{id.model_like}}</button>
+                    
+                    <style>
+                        .like_button {
+                            margin-bottom: 15px;
+                            display: inline-block;
+                            justify-content: right;
+                            font-size: 8px;
+                        }
+                    </style>
+                </form>
+        </div>
+        <div class="col-3">
+            <h5>Related to This</h5>
+            {% for i in cat %}
+                
+            <div class="card" style="width: auto; margin-bottom: 1rem;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">{{i.model_title}}</h5>
+                  
+                  <p class="card-text">{{i.model_short |slice:":100"}}</p>
+                  <a href="{% url 'readPost' id=i.model_id %}" class="card-link">Read</a>
+                  
+                </div>
+              </div>
+              
+              
+              {% endfor %}
+        </div>
+        
+        
+    </div>
+
+    {% endblock %}
