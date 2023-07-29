@@ -7,13 +7,9 @@
         <form method="post" action="{% url 'addPost' %}" style="margin-top: 50px;padding-left: 300px;">
           {% csrf_token %}  
           <div class="form-row">
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-6">
                 <label for="inputEmail4">Author</label>
                 <input type="text" class="form-control"  placeholder="Author" name="author" required>
-              </div><br>
-              <div class="form-group col-md-3">
-                <label for="inputEmail4">Category</label>
-                <input type="text" class="form-control"  placeholder="Like Technology" name="cat" required>
               </div><br>
               <div class="form-group col-md-6">
                 <label for="">Blog Title</label>
